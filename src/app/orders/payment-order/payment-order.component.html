@@ -1,0 +1,10 @@
+<form [formGroup]="paiementForm" (ngSubmit)="onSubmit()">
+    <label for="commandeId">Commande ID:</label>
+    <input id="commandeId" formControlName="commandeId">
+    <label for="montant">Montant:</label>
+    <input id="montant" formControlName="montant">
+    <label for="date">Date:</label>
+    <input id="date" formControlName="date" type="date">
+    <button type="submit">Enregistrer Paiement</button>
+  </form>
+  

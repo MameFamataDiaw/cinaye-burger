@@ -1,0 +1,42 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Téléphone</th>
+      <th>Statut</th>
+      <th>Date</th>
+      <th>Montant</th>
+      <th>Details</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let commande of commandes">
+      <td>{{ commande.nom_client }}</td>
+      <td>{{ commande.prenom_client }}</td>
+      <td>{{ commande.telephone_client }}</td>
+      <td>{{ commande.statut }}</td>
+      <td>{{ commande.date | date }}</td>
+      <td>{{ commande.total | currency }}</td>
+      <td>
+        <ul>
+            <li *ngFor="let detail of commande.details">
+              Burger ID: {{ detail.burger_id }}, Quantité: {{ detail.quantite }}, Prix: {{ detail.prix }}, Montant: {{ detail.montant }}
+            </li>
+          </ul>
+      </td>
+      <td>
+        <!-- Bouton "Terminer" s'affiche seulement si le statut est "en cours" -->
+        <button *ngIf="commande.statut === 'en cours'" (click)="markAsCompleted(commande.id)">Terminer</button>
+
+        <!-- Bouton "Annuler" s'affiche seulement si le statut est "en cours" -->
+        <button *ngIf="commande.statut === 'en cours'" (click)="cancelOrder(commande.id)">Annuler</button>
+
+        <!-- Bouton "Payer" s'affiche seulement si le statut est "terminé" -->
+        <!-- <button *ngIf="commande.statut === 'terminé'" (click)="markAsPaid(commande.id)">Payer</button> -->
+        <button *ngIf="showPayButton(commande)" (click)="markAsPaid(commande.id)">Payer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

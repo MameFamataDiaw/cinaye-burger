@@ -1,0 +1,83 @@
+<!-- burger-order.component.html -->
+<div>
+  <h2>Commande pour {{ burger?.nom }}</h2>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  
+  <form [formGroup]="commandeForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nomClient">Nom:</label>
+      <input id="nomClient" formControlName="nomClient">
+    </div>
+    <div>
+      <label for="prenomClient">Prénom:</label>
+      <input id="prenomClient" formControlName="prenomClient">
+    </div>
+    <div>
+      <label for="telephone">Téléphone:</label>
+      <input id="telephone" formControlName="telephone">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email">
+    </div>
+    <div>
+      <label for="quantite">Quantité:</label>
+      <input id="quantite" type="number" formControlName="quantite">
+    </div>
+    <button type="submit">Commander</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- burger-order.component.html -->
+<!-- <div *ngIf="burger">
+  <h1>Commander {{ burger.nom }}</h1>
+  <form (ngSubmit)="passerCommande()">
+    <div>
+      <label for="quantite">Quantité:</label>
+      <input type="number" id="quantite" [(ngModel)]="quantite" min="1" name="quantite">
+    </div>
+    <div>
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" [(ngModel)]="clientInfo.nom" name="nom">
+    </div>
+    <div>
+      <label for="prenom">Prénom:</label>
+      <input type="text" id="prenom" [(ngModel)]="clientInfo.prenom" name="prenom">
+    </div>
+    <div>
+      <label for="telephone">Téléphone:</label>
+      <input type="text" id="telephone" [(ngModel)]="clientInfo.telephone" name="telephone">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="clientInfo.email" name="email">
+    </div>
+    <button type="submit">Passer la commande</button>
+  </form>
+</div> -->
+
+

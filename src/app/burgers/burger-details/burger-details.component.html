@@ -1,0 +1,7 @@
+<h2>Details du burger</h2>
+<div *ngIf="burger"> <!-- Affichage des détails du burger s'ils sont disponibles -->
+  <p>Nom: {{ burger.nom }}</p>
+  <p>Description: {{ burger.description }}</p>
+  <p>Prix: {{ burger.prix | currency }}</p>
+  <img [src]="burger.image" alt="{{ burger.nom }}">
+</div>

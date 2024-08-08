@@ -1,0 +1,11 @@
+<!-- burger-details.component.html -->
+<h2>Détails du Burger</h2>
+<div *ngIf="burger">
+  <h3>{{ burger.nom }}</h3>
+  <p>{{ burger.description }}</p>
+  <p>Prix: {{ burger.prix | currency }}</p>
+  <p>{{ burger.image }}</p>
+  <!-- <img [src]="burger.image" alt="{{ burger.nom }}"> -->
+  <!-- <a [routerLink]="['/order', { burgerId: burger.id }]">Commander</a> -->
+  <button [routerLink]="['/burger-order', burger.id]">Commander</button> <!-- Utilisation correcte de routerLink -->
+</div>

@@ -1,0 +1,32 @@
+<h2>{{ isEditMode ?'Modifier' : 'Ajouter'}} un burger</h2>
+<form [formGroup]="burgerForm" (ngSubmit)="onSubmit()">
+  <label for="nom">Nom</label>
+  <input id="nom" formControlName="nom">
+  <div *ngIf="burgerForm.get('nom')?.invalid && burgerForm.get('nom')?.touched">
+    Le nom est requis.
+  </div>
+
+  <label for="description">Description</label>
+  <input id="description" formControlName="description">
+  <div *ngIf="burgerForm.get('description')?.invalid && burgerForm.get('description')?.touched">
+    La description est requise
+  </div>
+
+  <label for="prix">Prix</label>
+  <input id="prix" type="number" formControlName="prix">
+  <div *ngIf="burgerForm.get('prix')?.invalid && burgerForm.get('prix')?.touched">
+    Le prix est requis et doit être supérieur ou égal à 0.
+  </div>
+
+  <label for="image">Image URL</label>
+  <input id="image" formControlName="image">
+  <div *ngIf="burgerForm.get('image')?.invalid && burgerForm.get('image')?.touched">
+    L'image est requis
+  </div>
+
+  <label for="statut">Statut</label>
+  <input id="statut" type="checkbox" formControlName="statut">
+
+
+  <button type="submit" [disabled]="burgerForm.invalid">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+</form>

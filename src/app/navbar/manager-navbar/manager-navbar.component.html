@@ -1,0 +1,5 @@
+<nav *ngIf="isVisible">
+  <a routerLink="/burgers">Gestion des Burgers</a>
+  <a routerLink="/commandes">Gestion des Commandes</a>
+  <a routerLink="/login" (click)="logout()">Déconnexion</a>
+</nav>

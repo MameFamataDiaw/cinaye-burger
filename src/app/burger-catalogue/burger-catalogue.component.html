@@ -1,0 +1,26 @@
+<h2>Catalogue des burgers</h2>
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Description</th>
+    <th>Prix</th>
+  </tr>
+  <tr *ngFor="let burger of burgers">
+    <td>{{ burger.nom }}</td>
+    <td>{{ burger.description }}</td>
+    <td>{{ burger.prix }}</td>
+    <td>
+      <a [routerLink]="['/details', burger.id]">Voir les détails</a>
+      <!-- <button (click)="viewDetails(burger.id)">View Details</button> -->
+    </td>
+  </tr>
+</table>
+
+<!-- <ul>
+  <li *ngFor="let burger of burgers"> 
+    <a [routerLink]="['/burgers', burger.id]">{{ burger.nom }} - {{ burger.prix | currency }}</a>
+      <button (click)="viewDetails(burger.id)">View Details</button>
+    <button (click)="deleteBurger(burger.id)">Supprimer</button>
+  </li>
+</ul> -->
+
